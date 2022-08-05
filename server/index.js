@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // random compliment
-const { getCompliment } = require('./controller')
+const { getCompliment, deleteToDoListItem } = require('./controller')
 
 app.get("/api/compliment", getCompliment);
 
@@ -32,7 +32,7 @@ app.post("/api/toDo", postToDo);
 // delete to do list
 const { deleteToDoItem } = require('./controller')
 
-app.get("/api/toDoList/:id", deleteToDoItem);
+app.delete("/api/toDoList/:id", deleteToDoListItem);
 
 
 

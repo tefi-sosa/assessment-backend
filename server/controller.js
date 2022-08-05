@@ -46,9 +46,9 @@ module.exports = {
 
         res.status(200).send(JSON.stringify(toDoObject.map(item => item.item)));
     },
-    deleteToDoItem: (request, response) => {
-        let index = toDoObject.findIndex( item => item.id === +request.params.id)
-        toDoObject.splice(index, 1)
+    deleteToDoListItem: (request, response) => {
+        // console.log(request.params)
+        toDoObject.splice(request.params.id, 1)
         response.status(200).send(JSON.stringify(toDoObject.map(item => item.item)))
     }
 
