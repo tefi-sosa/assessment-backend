@@ -10,8 +10,14 @@
 
     <form onsubmit="return false">
       <p>Add items to the to do list:</p>
-      <input placeholder="enter to do item" type="text">
+      <input placeholder="enter to do item" id="postItem" type="text">
       <button id="toDoBtn">Add to list</button>
+    </form>
+    <form onsubmit="return false">
+      <p>Update/change an item on the to do list:</p>
+      <input placeholder="enter number of item" id="updateNum" type="text">
+      <input placeholder="new to do item" id="updateContent" type="text">
+      <button id="updateListButton">Update</button>
     </form>
     <form onsubmit="return false">
       <p>Delete an item on the to do list:</p>

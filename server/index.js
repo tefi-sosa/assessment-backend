@@ -29,6 +29,12 @@ const { postToDo } = require('./controller')
 
 app.post("/api/toDo", postToDo);
 
+// put to do item
+const { updateListItem } = require('./controller')
+
+app.put("/api/toDoList/:id", updateListItem);
+
+
 // delete to do list
 const { deleteToDoItem } = require('./controller')
 

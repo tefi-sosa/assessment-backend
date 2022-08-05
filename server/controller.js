@@ -1,8 +1,8 @@
 const toDoObject = [
-    { id: 1, item: "Clean the house"},
-    { id: 2, item: "Go to the gym"},
+    { id: 0, item: "Clean the house"},
+    { id: 1, item: "Go to the gym"},
 ]
-let baseNum = 3
+let baseNum = 2
 
 module.exports = {
 
@@ -28,17 +28,14 @@ module.exports = {
    
         let { item } = req.body
 
-        console.log(req)
         let newToDo = {
             id: baseNum,
             item,
         }
         console.log(newToDo)
 
-        // toDoObject.push(newToDo)
-        // baseNum++
-        // console.log(toDoObject);
-        // toDoObject.push(request.body)
+        toDoObject.push(newToDo)
+        baseNum++
 
         res.status(200).send(JSON.stringify(toDoObject.map(item => item.item)));
     },
@@ -50,6 +47,13 @@ module.exports = {
         // console.log(request.params)
         toDoObject.splice(request.params.id, 1)
         response.status(200).send(JSON.stringify(toDoObject.map(item => item.item)))
+    },
+    updateListItem: (request, response) => {
+        // console.log(request.body)
+        const itemToUpdate = toDoObject.find((item) => item.id === parseInt(request.body['id']))
+        // console.log(itemToUpdate);
+        itemToUpdate.item = request.body.item
+        
+        response.status(200).send(JSON.stringify(toDoObject.map(item => item.item)))
     }
-
 }
